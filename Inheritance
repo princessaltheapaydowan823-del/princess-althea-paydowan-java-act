@@ -1,0 +1,61 @@
+// Parent class
+class Vehicle {
+    private String brand;
+    private String model;
+    private int year;
+
+    // Constructor
+    public Vehicle(String brand, String model, int year) {
+        this.brand = brand;
+        this.model = model;
+        this.year = year;
+    }
+
+    public void startEngine() {
+        System.out.println("Engine is now running...");
+    }
+
+    // Getter methods
+    public String getBrand() {
+        return brand;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public int getYear() {
+        return year;
+    }
+}
+
+// Child class
+class Car extends Vehicle {
+    private int maxSpeed;
+    private String fuelType;
+
+    // Constructor
+    public Car(String brand, String model, int year, int maxSpeed, String fuelType) {
+        super(brand, model, year);  // call parent constructor
+        this.maxSpeed = maxSpeed;
+        this.fuelType = fuelType;
+    }
+
+    public void showDetails() {
+        System.out.println("Brand: " + getBrand());
+        System.out.println("Model: " + getModel());
+        System.out.println("Year: " + getYear());
+        System.out.println("Max Speed: " + maxSpeed + " km/h");
+        System.out.println("Fuel Type: " + fuelType);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+
+        Car car = new Car("Honda", "Civic", 2022, 180, "Gasoline");
+
+        car.startEngine();
+        car.showDetails();
+    }
+}
