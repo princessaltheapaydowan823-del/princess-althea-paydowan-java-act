@@ -1,0 +1,42 @@
+Taking inputs
+import java.util.Scanner;
+
+class Person {
+    private String name;
+    private int age;
+
+    // Updated constructor (different variable names)
+    Person(String n, int a) {
+        name = n;
+        age = a;
+    }
+
+    // Slightly different method name + format
+    void displayInfo() {
+        System.out.println("\n--- USER INFORMATION ---");
+        System.out.println("Full Name: " + name);
+        System.out.println("Age: " + age);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        // Changed prompts
+        System.out.print("Please enter your full name: ");
+        String userName = sc.nextLine();
+
+        System.out.print("Please enter your age: ");
+        int userAge = sc.nextInt();
+
+        // Using the new variable names
+        Person person1 = new Person(userName, userAge);
+
+        // Different method name
+        person1.displayInfo();
+
+        sc.close();
+    }
+}
