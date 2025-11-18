@@ -1,0 +1,45 @@
+LOGICAL OPERATORS 
+
+import java.util.Scanner;
+
+class Person {
+    private String fullName;
+    private int yearsOld;
+    private boolean citizenStatus;
+
+    Person(String fullName, int yearsOld, boolean citizenStatus) {
+        this.fullName = fullName;
+        this.yearsOld = yearsOld;
+        this.citizenStatus = citizenStatus;
+    }
+
+    void verifyVoteStatus() {
+        if (yearsOld >= 18 && citizenStatus) {
+            System.out.println(fullName + " is eligible to vote.");
+        } else {
+            System.out.println(fullName + " is NOT eligible to vote.");
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Enter your name: ");
+        String userName = input.nextLine();
+
+        System.out.print("Enter your age: ");
+        int ageValue = input.nextInt();
+
+        System.out.print("Are you a citizen? (true/false): ");
+        boolean citizenFlag = input.nextBoolean();
+
+        Person voter = new Person(userName, ageValue, citizenFlag);
+
+        voter.verifyVoteStatus();
+
+        input.close();
+    }
+}
