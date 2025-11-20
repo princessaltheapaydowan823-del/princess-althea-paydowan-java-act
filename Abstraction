@@ -1,0 +1,67 @@
+// Abstract class
+abstract class Motorcycle {
+    String brand = "Yamaha";
+
+    abstract void startEngine();
+    abstract void stopEngine();
+    abstract void engineType();
+    abstract void topSpeed();
+
+    void showBrand() {
+        System.out.println("Motorcycle Brand: " + brand);
+    }
+}
+
+// Subclass (Yamaha MT-15)
+class YamahaMT15 extends Motorcycle {
+
+    @Override
+    void startEngine() {
+        System.out.println("Yamaha MT-15 engine started using key ignition.");
+    }
+
+    @Override
+    void stopEngine() {
+        System.out.println("Yamaha MT-15 engine stopped.");
+    }
+
+    @Override
+    void engineType() {
+        System.out.println("Engine Type: 155cc Liquid-Cooled 4-Stroke");
+    }
+
+    @Override
+    void topSpeed() {
+        System.out.println("Top Speed: 130 km/h");
+    }
+
+    // Different syntax: using constructor to set model
+    private String model;
+
+    YamahaMT15() {
+        this.model = "Yamaha MT-15 2022";
+    }
+
+    void showModel() {
+        System.out.println("Model: " + model);
+    }
+}
+
+// Main class
+public class Main {
+    public static void main(String[] args) {
+
+        Motorcycle moto = new YamahaMT15();  // Polymorphism
+
+        moto.showBrand();
+        moto.startEngine();
+        moto.stopEngine();
+
+        // Cast to subclass to access unique method
+        YamahaMT15 mt = (YamahaMT15) moto;
+        mt.showModel();   // Model in the middle
+
+        moto.topSpeed();     // Top speed before engine type
+        moto.engineType();   // Engine type last
+    }
+}
